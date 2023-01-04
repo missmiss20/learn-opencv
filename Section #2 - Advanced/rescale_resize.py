@@ -5,8 +5,10 @@ import cv2 as cv
 # img = cv.imread('../Resources/Photos/cat.jpg')
 # cv.imshow('Cat', img)
 
+
 def rescaleFrame(frame, scale=0.75):
-    # Images, Videos and Live Video
+    # Images, Existing Videos and Live Video
+    # cv.INTER_AREA resize the frame by a paticular "dimension"
     width = int(frame.shape[1] * scale)
     height = int(frame.shape[0] * scale)
 
@@ -15,7 +17,8 @@ def rescaleFrame(frame, scale=0.75):
     return cv.resize(frame, dimensions, interpolation=cv.INTER_AREA)
 
 def changeRes(width,height):
-    # Live video
+    # Works for Live video only
+    # can also set the color, brightness etc.
     capture.set(3,width)
     capture.set(4,height)
     
