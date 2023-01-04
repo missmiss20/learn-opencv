@@ -32,6 +32,7 @@ def rotate(img, angle, rotPoint=None):
 
     return cv.warpAffine(img, rotMat, dimensions)
 
+# rotate clockwise 45 degrees
 rotated = rotate(img, -45)
 cv.imshow('Rotated', rotated)
 
@@ -43,12 +44,14 @@ resized = cv.resize(img, (500,500), interpolation=cv.INTER_CUBIC)
 cv.imshow('Resized', resized)
 
 # Flipping
+# flip 0: flip over x axis.
+# flip 1: flip over y axis.
+# flip -1: both
 flip = cv.flip(img, -1)
 cv.imshow('Flip', flip)
 
 # Cropping
 cropped = img[200:400, 300:400]
 cv.imshow('Cropped', cropped)
-
 
 cv.waitKey(0)
